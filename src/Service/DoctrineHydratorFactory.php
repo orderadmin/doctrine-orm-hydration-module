@@ -7,22 +7,23 @@ use Doctrine\ODM\MongoDB\DocumentManager;
 use Doctrine\ORM\EntityManager;
 use DoctrineModule\Persistence\ObjectManagerAwareInterface;
 use DoctrineModule\Stdlib\Hydrator;
+use Doctrine\Laminas\Hydrator\DoctrineObject;
 use Interop\Container\ContainerInterface;
 use Phpro\DoctrineHydrationModule\Hydrator\DoctrineHydrator;
 use Phpro\DoctrineHydrationModule\Hydrator\ODM\MongoDB;
-use Zend\Hydrator\AbstractHydrator;
-use Zend\Hydrator\Filter\FilterComposite;
-use Zend\Hydrator\Filter\FilterInterface;
-use Zend\Hydrator\FilterEnabledInterface;
-use Zend\Hydrator\HydratorInterface;
-use Zend\Hydrator\NamingStrategy\NamingStrategyInterface;
-use Zend\Hydrator\NamingStrategyEnabledInterface;
-use Zend\Hydrator\Strategy\StrategyInterface;
-use Zend\Hydrator\StrategyEnabledInterface;
-use Zend\ServiceManager\AbstractFactoryInterface;
-use Zend\ServiceManager\Exception\ServiceNotCreatedException;
-use Zend\ServiceManager\Exception\ServiceNotFoundException;
-use Zend\ServiceManager\ServiceLocatorInterface;
+use Laminas\Hydrator\AbstractHydrator;
+use Laminas\Hydrator\Filter\FilterComposite;
+use Laminas\Hydrator\Filter\FilterInterface;
+use Laminas\Hydrator\Filter\FilterEnabledInterface;
+use Laminas\Hydrator\HydratorInterface;
+use Laminas\Hydrator\NamingStrategy\NamingStrategyInterface;
+use Laminas\Hydrator\NamingStrategy\NamingStrategyEnabledInterface;
+use Laminas\Hydrator\Strategy\StrategyInterface;
+use Laminas\Hydrator\Strategy\StrategyEnabledInterface;
+use Laminas\ServiceManager\AbstractFactoryInterface;
+use Laminas\ServiceManager\Exception\ServiceNotCreatedException;
+use Laminas\ServiceManager\Exception\ServiceNotFoundException;
+use Laminas\ServiceManager\ServiceLocatorInterface;
 
 /**
  * Class DoctrineHydratorFactory.
@@ -249,7 +250,7 @@ class DoctrineHydratorFactory implements AbstractFactoryInterface
         if ($objectManagerType == self::OBJECT_MANAGER_TYPE_ODM_MONGODB) {
             $hydrator = new MongoDB\DoctrineObject($objectManager, $config['by_value']);
         } else {
-            $hydrator = new Hydrator\DoctrineObject($objectManager, $config['by_value']);
+            $hydrator = new DoctrineObject($objectManager, $config['by_value']);
         }
 
         return $hydrator;

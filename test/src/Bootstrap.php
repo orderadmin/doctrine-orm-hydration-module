@@ -61,7 +61,7 @@ class Bootstrap
         define('DOCTRINE_MONGODB_SERVER', 'mongodb://localhost:27017');
 
         // Load annotated classes
-        \Doctrine\ODM\MongoDB\Mapping\Driver\AnnotationDriver::registerAnnotationClasses();
+//        \Doctrine\ODM\MongoDB\Mapping\Driver\AnnotationDriver::registerAnnotationClasses();
     }
 }
 

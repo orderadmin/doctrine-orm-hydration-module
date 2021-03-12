@@ -2,7 +2,7 @@
 
 namespace Phpro\DoctrineHydrationModule\Hydrator\ODM\MongoDB\Strategy;
 
-use Zend\Hydrator\Strategy\StrategyInterface;
+use Laminas\Hydrator\Strategy\StrategyInterface;
 
 /**
  * Class DateTimeField.
@@ -27,7 +27,7 @@ class DateTimeField implements StrategyInterface
      *
      * @return int|mixed
      */
-    public function extract($value)
+    public function extract($value, ?object $object = NULL)
     {
         if (!($value instanceof \DateTime)) {
             return $value;
@@ -41,7 +41,7 @@ class DateTimeField implements StrategyInterface
      *
      * @return \DateTime|null
      */
-    public function hydrate($value)
+    public function hydrate($value, ?array $data)
     {
         $datetime = $this->convertToDateTime($value);
         if (!$datetime) {

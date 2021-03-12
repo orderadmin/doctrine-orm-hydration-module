@@ -25,10 +25,11 @@
     "doctrine/instantiator": "^1.0.5",
     "laminas/laminas-servicemanager": "^3.3.2",
     "laminas/laminas-hydrator": "^3.0",
-    "laminas/laminas-modulemanager": "^2.7.2"
+    "laminas/laminas-modulemanager": "^2.7.2",
+    "doctrine/doctrine-laminas-hydrator": "^2.1"
   },
   "require-dev": {
-    "phpunit/phpunit": "^5.7.27",
+    "phpunit/phpunit": "^9.5",
     "doctrine/doctrine-orm-module": "^3.2",
     "doctrine/doctrine-mongo-odm-module": "^3.0",
     "doctrine/mongodb-odm": "^2.2"
