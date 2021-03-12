@@ -19,21 +19,19 @@
     }
   },
   "require": {
-    "php": "^5.6 || ^7.0",
+    "php": "^7.3",
     "doctrine/common": "^2.6.1",
-    "doctrine/doctrine-module": "^1.2 || ^2.1.7",
+    "doctrine/doctrine-module": "^4.1",
     "doctrine/instantiator": "^1.0.5",
-    "zendframework/zend-servicemanager": "^3.3.2",
-    "zendframework/zend-hydrator": "^1.1 || ^2.2.1",
-    "zendframework/zend-modulemanager": "^2.7.2"
+    "laminas/laminas-servicemanager": "^3.3.2",
+    "laminas/laminas-hydrator": "^3.0",
+    "laminas/laminas-modulemanager": "^2.7.2"
   },
   "require-dev": {
-    "fabpot/PHP-CS-Fixer": "^1.11.6",
     "phpunit/phpunit": "^5.7.27",
-    "doctrine/doctrine-orm-module": "^1.1 || ^2.1.2",
-    "doctrine/doctrine-mongo-odm-module": "^0.11 || ^1.0",
-    "doctrine/mongodb-odm": "^1.1",
-    "phpro/grumphp": "^0.9.1"
+    "doctrine/doctrine-orm-module": "^3.2",
+    "doctrine/doctrine-mongo-odm-module": "^3.0",
+    "doctrine/mongodb-odm": "^2.2"
   },
   "autoload": {
     "psr-4": {
