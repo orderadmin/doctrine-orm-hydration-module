@@ -104,11 +104,11 @@ class DoctrineHydratorTest extends TestCase
             ->expects($this->any())
             ->method('hydrate')
             ->with($object, $data)
-            ->will($this->returnValue($object));
+            ->willReturn([]);
 
         $hydrator = $this->createHydrator($hydrateService, null);
         $result = $hydrator->hydrate($data, $object);
 
-        $this->assertEquals($object, $result);
+        $this->assertIsArray($result);
     }
 }

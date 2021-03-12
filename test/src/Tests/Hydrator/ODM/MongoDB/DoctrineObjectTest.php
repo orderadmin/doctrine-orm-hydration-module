@@ -45,7 +45,7 @@ class DoctrineObjectTest extends BaseTest
     public function it_should_be_a_doctrine_hydrator()
     {
         $hydrator = $this->createHydrator();
-        $this->assertInstanceOf('DoctrineModule\Stdlib\Hydrator\DoctrineObject', $hydrator);
+        $this->assertInstanceOf('Doctrine\Laminas\Hydrator\DoctrineObject', $hydrator);
     }
 
     /**
@@ -87,7 +87,9 @@ class DoctrineObjectTest extends BaseTest
 
         $this->assertEquals(1, $result['id']);
         $this->assertEquals('user', $result['name']);
-        $this->assertEquals($creationDate->getTimestamp(), $result['createdAt']);
+
+        // Timestamp was removed from annotations
+        // $this->assertEquals($creationDate->getTimestamp(), $result['createdAt']);
         $this->assertEquals($birthday->getTimestamp(), $result['birthday']);
         $this->assertEquals(1, $result['embedOne']['id']);
         $this->assertEquals('name', $result['embedOne']['name']);

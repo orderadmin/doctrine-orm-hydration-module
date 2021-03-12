@@ -51,7 +51,7 @@ abstract class AbstractMongoStrategyTest extends BaseTest
     public function it_should_be_a_collection_strategy()
     {
         $strategy = $this->createStrategy();
-        $this->assertInstanceOf('DoctrineModule\Stdlib\Hydrator\Strategy\AbstractCollectionStrategy', $strategy);
+        $this->assertInstanceOf('Doctrine\Laminas\Hydrator\Strategy\AbstractCollectionStrategy', $strategy);
     }
 
     /**

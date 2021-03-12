@@ -58,7 +58,7 @@ class Bootstrap
     {
         // Constants
         define('DOCTRINE_MONGODB_DATABASE', 'hydrator-tests');
-        define('DOCTRINE_MONGODB_SERVER', 'mongodb://localhost:27017');
+        define('DOCTRINE_MONGODB_SERVER', 'mongodb://mongo:27017');
 
         // Load annotated classes
 //        \Doctrine\ODM\MongoDB\Mapping\Driver\AnnotationDriver::registerAnnotationClasses();

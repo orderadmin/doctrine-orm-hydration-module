@@ -27,31 +27,29 @@ class HydrationUser
     public $birthday;
 
     /**
-     * @ODM\Timestamp
-     *
      * @var \DateTime
      */
     public $createdAt;
 
     /**
-     * @ODM\ReferenceOne(targetDocument="HydrationReferenceOne")
+     * @ODM\ReferenceOne(targetDocument="PhproTest\DoctrineHydrationModule\Fixtures\ODM\MongoDb\HydrationReferenceOne")
      */
     public $referenceOne;
 
     /**
-     * @ODM\ReferenceMany(targetDocument="HydrationReferenceMany")
+     * @ODM\ReferenceMany(targetDocument="PhproTest\DoctrineHydrationModule\Fixtures\ODM\MongoDb\HydrationReferenceMany")
      *
      * @var ArrayCollection
      */
     public $referenceMany = array();
 
     /**
-     * @ODM\EmbedOne(targetDocument="HydrationEmbedOne")
+     * @ODM\EmbedOne(targetDocument="PhproTest\DoctrineHydrationModule\Fixtures\ODM\MongoDb\HydrationEmbedOne")
      */
     public $embedOne;
 
     /**
-     * @ODM\EmbedMany(targetDocument="HydrationEmbedMany")
+     * @ODM\EmbedMany(targetDocument="PhproTest\DoctrineHydrationModule\Fixtures\ODM\MongoDb\HydrationEmbedMany")
      *
      * @var ArrayCollection
      */

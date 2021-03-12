@@ -15,7 +15,7 @@ class ReferencedCollection extends AbstractMongoStrategy
      *
      * @return mixed
      */
-    public function extract($value)
+    public function extract($value, ?object $object = NULL)
     {
         $strategy = new ReferencedField($this->getObjectManager());
         $strategy->setClassMetadata($this->getClassMetadata());
@@ -37,7 +37,7 @@ class ReferencedCollection extends AbstractMongoStrategy
      *
      * @return array|Collection|mixed
      */
-    public function hydrate($value)
+    public function hydrate($value, ?array $data)
     {
         $mapping = $this->metadata->fieldMappings[$this->collectionName];
         $targetDocument = $mapping['targetDocument'];

@@ -3,8 +3,8 @@
 namespace Phpro\DoctrineHydrationModule\Hydrator\ODM\MongoDB;
 
 use Doctrine\Laminas\Hydrator\DoctrineObject as BaseHydrator;
+use Doctrine\Laminas\Hydrator\Strategy as DoctrineStrategy;
 use DoctrineModule\Persistence\ObjectManagerAwareInterface;
-use DoctrineModule\Stdlib\Hydrator\Strategy as DoctrineStrategy;
 use InvalidArgumentException;
 use Phpro\DoctrineHydrationModule\Hydrator\ODM\MongoDB\Strategy\AbstractMongoStrategy;
 use Phpro\DoctrineHydrationModule\Hydrator\ODM\MongoDB\Strategy\DateTimeField;

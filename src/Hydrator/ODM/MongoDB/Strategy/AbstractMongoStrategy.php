@@ -2,10 +2,11 @@
 
 namespace Phpro\DoctrineHydrationModule\Hydrator\ODM\MongoDB\Strategy;
 
-use Doctrine\Laminas\Hydrator\DoctrineObject;
+use Doctrine\Laminas\Hydrator\DoctrineObject as BaseHydrator;
+use Doctrine\Laminas\Hydrator\Strategy\AbstractCollectionStrategy;
+use Doctrine\Laminas\Hydrator\Strategy\AllowRemoveByValue;
+use Doctrine\Persistence\ObjectManager;
 use DoctrineModule\Persistence\ObjectManagerAwareInterface;
-use DoctrineModule\Stdlib\Hydrator\Strategy\AbstractCollectionStrategy;
-use DoctrineModule\Stdlib\Hydrator\Strategy\AllowRemoveByValue;
 use Phpro\DoctrineHydrationModule\Hydrator\ODM\MongoDB\DoctrineObject;
 
 /**
@@ -23,7 +24,7 @@ abstract class AbstractMongoStrategy extends AbstractCollectionStrategy implemen
      *
      * @param ObjectManager $objectManager
      */
-    public function setObjectManager(ObjectManager $objectManager)
+    public function setObjectManager(ObjectManager $objectManager): void
     {
         $this->objectManager = $objectManager;
     }
@@ -33,7 +34,7 @@ abstract class AbstractMongoStrategy extends AbstractCollectionStrategy implemen
      *
      * @return ObjectManager
      */
-    public function getObjectManager()
+    public function getObjectManager(): ObjectManager
     {
         return $this->objectManager;
     }
@@ -49,11 +50,11 @@ abstract class AbstractMongoStrategy extends AbstractCollectionStrategy implemen
     }
 
     /**
-     * @return DoctrineObject
+     * @return BaseHydrator
      */
     protected function getDoctrineHydrator()
     {
-        return new DoctrineObject($this->getObjectManager());
+        return new BaseHydrator($this->getObjectManager());
     }
 
     /**
@@ -70,7 +71,7 @@ abstract class AbstractMongoStrategy extends AbstractCollectionStrategy implemen
         $strategy->setClassMetadata($this->getClassMetadata());
         $strategy->setCollectionName($this->getCollectionName());
 
-        return $strategy->hydrate($value);
+        return $strategy->hydrate($value, null);
     }
 
     /**

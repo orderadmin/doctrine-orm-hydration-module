@@ -14,7 +14,7 @@ class ReferencedField extends AbstractMongoStrategy
      *
      * @return mixed
      */
-    public function extract($value)
+    public function extract($value, ?object $object = NULL)
     {
         if (!is_object($value)) {
             return $value;
@@ -38,7 +38,7 @@ class ReferencedField extends AbstractMongoStrategy
      *
      * @return array|Collection|mixed
      */
-    public function hydrate($value)
+    public function hydrate($value, ?array $data)
     {
         if (is_object($value)) {
             return $value;
