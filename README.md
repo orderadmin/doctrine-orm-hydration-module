@@ -1,4 +1,5 @@
-[![Build status](https://api.travis-ci.org/api-skeletons/doctrine-orm-hydration-module.svg)](http://travis-ci.org/api-skeletons/doctrine-orm-hydration-module)
+[![Build Status](https://github.com/api-skeletons/doctrine-orm-hydration-module/workflows/Continuous%20Integration/badge.svg)](https://github.com/api-skeletons/doctrine-orm-hydration-module/actions)
+[![Code Coverage](https://codecov.io/gh/api-skeletons/doctrine-orm-hydration-module/branch/master/graph/badge.svg)](https://codecov.io/gh/api-skeletons/doctrine-orm-hydration-module/branch/master)
 [![Packagist](https://img.shields.io/packagist/v/api-skeletons/doctrine-orm-hydration-module.svg)](https://packagist.org/packages/api-skeletons/doctrine-orm-hydration-module)
 [![Downloads](https://img.shields.io/packagist/dt/api-skeletons/doctrine-orm-hydration-module.svg)](https://packagist.org/packages/api-skeletons/doctrine-orm-hydration-module)
 
