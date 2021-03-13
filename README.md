@@ -7,10 +7,7 @@
 This module provides a configurable way to create new doctrine hydrators.
 By using the configurable API, it is easy to create a custom hydrator for any use case you want.
 
-For ORM, the basic hydrator from the doctrine module is being used. It is possible to configure your own strategies for complex objects like referenced entities.
-
-For MongoDB ODM, a specific hydrator is added. This hydrator will be able to handle Referenced documents and Embedded Documents.
-It is also possible to hydrate advanced documents with discriminator maps.
+The basic hydrator from the doctrine laminas hydrator is being used. It is possible to configure your own strategies for complex objects like referenced entities.
 
 # Supported features 
 
@@ -42,7 +39,6 @@ return array(
             'entity_class' => 'App\Entity\EntityClass',
             'object_manager' => 'doctrine.objectmanager.key.in.servicelocator',
             'by_value' => true,
-            'use_generated_hydrator' => true,
             'naming_strategy' => 'custom.naming.strategy.key.in.servicemanager',
             'hydrator' => 'custom.hydrator.key.in.hydratormanager',
             'strategies' => array(
@@ -72,12 +68,6 @@ You can specify which object manager you want to use for the hydrator. The value
 **`by_value`**
 
 Specify if you want the hydrator to hydrate the entity by value or by reference.
-
-
-**`use_generated_hydrator`**
-
-This property will only be used with mongoDB ODM and will use the generated hydrators instead of the Doctrine Module Hydrator.
-Strategies will not work when this option is set to `true`.
 
 
 **`naming_strategy`**
@@ -134,7 +124,7 @@ The service's `filter($fieldName)` function will be called by the hydrator durin
 
 # Override hydrator:
 
-If the standard DoctrineHydrator is not flexible enough, you can set a custom `hydrator`. This allows you to use an extended DoctrineHydrator or another existing hydrator, and configure it with this module. This setting will override `use_generated_hydrator`.
+If the standard DoctrineHydrator is not flexible enough, you can set a custom `hydrator`. This allows you to use an extended DoctrineHydrator or another existing hydrator, and configure it with this module.`.
 
 ```php
 return array(
