@@ -1,6 +1,6 @@
-[![Build status](https://api.travis-ci.org/api-skeletons/doctrine-orm-hydration-module.svg)](http://travis-ci.org/api-skeletons/zf-doctrine-hydration-module)
-[![Packagist](https://img.shields.io/packagist/v/api-skeletons/zf-doctrine-hydration-module.svg)](https://packagist.org/packages/api-skeletons/zf-doctrine-hydration-module)
-[![Downloads](https://img.shields.io/packagist/dt/api-skeletons/zf-doctrine-hydration-module.svg)](https://packagist.org/packages/api-skeletons/zf-doctrine-hydration-module)
+[![Build status](https://api.travis-ci.org/api-skeletons/doctrine-orm-hydration-module.svg)](http://travis-ci.org/api-skeletons/doctrine-orm-hydration-module)
+[![Packagist](https://img.shields.io/packagist/v/api-skeletons/doctrine-orm-hydration-module.svg)](https://packagist.org/packages/api-skeletons/doctrine-orm-hydration-module)
+[![Downloads](https://img.shields.io/packagist/dt/api-skeletons/doctrine-orm-hydration-module.svg)](https://packagist.org/packages/api-skeletons/doctrine-orm-hydration-module)
 
 # Doctrine Hydration Module
 This module provides a configurable way to create new doctrine hydrators.
