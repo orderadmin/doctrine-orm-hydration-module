@@ -1,47 +1,45 @@
 {
-  "name": "phpro/zf-doctrine-hydration-module",
+  "name": "apiskeletons/doctrine-orm-hydration-module",
   "license": "MIT",
-  "description": "Doctrine hydrators for ZF2 and ZF3",
+  "description": "Doctrine ORM hydrators for Laminas",
   "keywords": [
-    "zf",
+    "laminas",
     "doctrine",
+    "orm",
     "hydrator"
   ],
   "authors": [
     {
       "name": "Toon Verwerft",
       "email": "toon.verwerft@phpro.be"
+    },
+    {
+      "name": "Tom H Anderson",
+      "email": "tom.h.anderson@gmail.com"
     }
   ],
   "extra": {
-    "zf": {
-      "module": "Phpro\\DoctrineHydrationModule"
+    "laminas": {
+      "module": "ApiSkeletons\\DoctrineHydrationModule"
     }
   },
   "require": {
-    "php": "^7.3",
-    "doctrine/common": "^2.6.1",
+    "php": "^7.4 || ^8.0",
     "doctrine/doctrine-module": "^4.1",
-    "doctrine/instantiator": "^1.0.5",
-    "laminas/laminas-servicemanager": "^3.3.2",
-    "laminas/laminas-hydrator": "^3.0",
-    "laminas/laminas-modulemanager": "^2.7.2",
     "doctrine/doctrine-laminas-hydrator": "^2.1"
   },
   "require-dev": {
-    "phpunit/phpunit": "^9.5",
     "doctrine/doctrine-orm-module": "^3.2",
-    "doctrine/doctrine-mongo-odm-module": "^3.0",
-    "doctrine/mongodb-odm": "^2.2"
+    "phpunit/phpunit": "^9.5"
   },
   "autoload": {
     "psr-4": {
-      "Phpro\\DoctrineHydrationModule\\": "src/"
+      "ApiSkeletons\\DoctrineORMHydrationModule\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "PhproTest\\DoctrineHydrationModule\\": "test/src/"
+      "ApiSkeletonsTest\\DoctrineORMHydrationModule\\": "test/src/"
     }
   }
 }

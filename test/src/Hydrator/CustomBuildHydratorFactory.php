@@ -1,9 +1,8 @@
 <?php
 
-namespace PhproTest\DoctrineHydrationModule\Hydrator;
+namespace ApiSkeletonsTest\DoctrineORMHydrationModule\Hydrator;
 
 use Interop\Container\ContainerInterface;
-use Phpro\DoctrineHydrationModule\Hydrator\DoctrineHydrator;
 use Laminas\Hydrator\ArraySerializableHydrator;
 
 final class CustomBuildHydratorFactory

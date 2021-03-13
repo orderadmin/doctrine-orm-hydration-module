@@ -1,6 +1,6 @@
 <?php
 
-namespace PhproTest\DoctrineHydrationModule;
+namespace ApiSkeletonsTest\DoctrineORMHydrationModule;
 
 error_reporting(E_ALL | E_STRICT);
 define('PROJECT_BASE_PATH', __DIR__.'/../..');
@@ -43,8 +43,8 @@ class Bootstrap
      */
     protected function initAutoLoading()
     {
-        $this->autoLoader->addPsr4('PhproTest\\DoctrineHydrationModule\\Tests\\', __DIR__.'/Tests/');
-        $this->autoLoader->addPsr4('PhproTest\\DoctrineHydrationModule\\Fixtures\\', __DIR__.'/Fixtures/');
+        $this->autoLoader->addPsr4('ApiSkeletonsTest\\DoctrineORMHydrationModule\\Tests\\', __DIR__.'/Tests/');
+        $this->autoLoader->addPsr4('ApiSkeletonsTest\\DoctrineORMHydrationModule\\Fixtures\\', __DIR__.'/Fixtures/');
 
         $this->autoLoader->addClassMap(array(
             'Doctrine\\ODM\\MongoDB\\Tests\\BaseTest' => PROJECT_BASE_PATH.'/vendor/doctrine/mongodb-odm/tests/Doctrine/ODM/MongoDB/Tests/BaseTest.php',

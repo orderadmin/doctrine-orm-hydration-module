@@ -1,9 +1,9 @@
 <?php
 
-namespace PhproTest\DoctrineHydrationModule\Tests\Service;
+namespace ApiSkeletonsTest\DoctrineORMHydrationModule\Tests\Service;
 
-use PhproTest\DoctrineHydrationModule\Hydrator\CustomBuildHydratorFactory;
-use Phpro\DoctrineHydrationModule\Service\DoctrineHydratorFactory;
+use ApiSkeletonsTest\DoctrineORMHydrationModule\Hydrator\CustomBuildHydratorFactory;
+use ApiSkeletons\DoctrineORMHydrationModule\Service\DoctrineHydratorFactory;
 use PHPUnit\Framework\TestCase;
 use Laminas\ServiceManager\ServiceManager;
 use Laminas\Hydrator\HydratorPluginManager;
@@ -74,24 +74,11 @@ class DoctrineHydratorFactoryTest extends TestCase
     }
 
     /**
-     * @return \Phpro\DoctrineHydrationModule\Hydrator\DoctrineHydrator
+     * @return \ApiSkeletons\DoctrineORMHydrationModule\Hydrator\DoctrineHydrator
      */
     protected function createOrmHydrator()
     {
         $this->stubObjectManager('Doctrine\ORM\EntityManager');
-
-        $factory = new DoctrineHydratorFactory();
-        $hydrator = $factory->createServiceWithName($this->hydratorManager, 'customhydrator', 'custom-hydrator');
-
-        return $hydrator;
-    }
-
-    /**
-     * @return \Phpro\DoctrineHydrationModule\Hydrator\DoctrineHydrator
-     */
-    protected function createOdmHydrator()
-    {
-        $this->stubObjectManager('Doctrine\ODM\MongoDb\DocumentManager');
 
         $factory = new DoctrineHydratorFactory();
         $hydrator = $factory->createServiceWithName($this->hydratorManager, 'customhydrator', 'custom-hydrator');
@@ -105,7 +92,7 @@ class DoctrineHydratorFactoryTest extends TestCase
     public function it_should_be_initializable()
     {
         $factory = new DoctrineHydratorFactory();
-        $this->assertInstanceOf('Phpro\DoctrineHydrationModule\Service\DoctrineHydratorFactory', $factory);
+        $this->assertInstanceOf('ApiSkeletons\DoctrineORMHydrationModule\Service\DoctrineHydratorFactory', $factory);
     }
 
     /**
@@ -139,54 +126,9 @@ class DoctrineHydratorFactoryTest extends TestCase
     {
         $hydrator = $this->createOrmHydrator();
 
-        $this->assertInstanceOf('Phpro\DoctrineHydrationModule\Hydrator\DoctrineHydrator', $hydrator);
+        $this->assertInstanceOf('ApiSkeletons\DoctrineORMHydrationModule\Hydrator\DoctrineHydrator', $hydrator);
         $this->assertInstanceOf(\Doctrine\Laminas\Hydrator\DoctrineObject::class, $hydrator->getExtractService());
         $this->assertInstanceOf(\Doctrine\Laminas\Hydrator\DoctrineObject::class, $hydrator->getHydrateService());
-    }
-
-    /**
-     * @test
-     */
-    public function it_should_create_a_custom_ODM_hydrator()
-    {
-        $hydrator = $this->createOdmHydrator();
-
-        $this->assertInstanceOf('Phpro\DoctrineHydrationModule\Hydrator\DoctrineHydrator', $hydrator);
-        $this->assertInstanceOf('Phpro\DoctrineHydrationModule\Hydrator\ODM\MongoDB\DoctrineObject', $hydrator->getExtractService());
-        $this->assertInstanceOf('Phpro\DoctrineHydrationModule\Hydrator\ODM\MongoDB\DoctrineObject', $hydrator->getHydrateService());
-    }
-
-    /**
-     * @ test
-     */
-    public function it_should_create_a_custom_ODM_hydrator_which_uses_the_auto_generated_hydrators()
-    {
-        $this->serviceConfig['doctrine-hydrator']['custom-hydrator']['use_generated_hydrator'] = true;
-        $this->serviceManager->setService('config', $this->serviceConfig);
-        $objectManager = $this->stubObjectManager('Doctrine\ODM\MongoDb\DocumentManager');
-
-        $hydratorFactory = $this->getMockBuilder('Doctrine\ODM\MongoDB\Hydrator\HydratorFactory')
-            ->disableOriginalConstructor()
-            ->getMock();
-        $generatedHydrator = $this->getMockBuilder('Doctrine\ODM\MongoDB\Hydrator\HydratorInterface')->getMock();
-
-        $objectManager
-            ->expects($this->any())
-            ->method('getHydratorFactory')
-            ->will($this->returnValue($hydratorFactory));
-
-        $hydratorFactory
-            ->expects($this->any())
-            ->method('getHydratorFor')
-            ->with('App\Entity\EntityClass')
-            ->will($this->returnValue($generatedHydrator));
-
-        $factory = new DoctrineHydratorFactory();
-        $hydrator = $factory->createServiceWithName($this->hydratorManager, 'customhydrator', 'custom-hydrator');
-
-        $this->assertInstanceOf('Phpro\DoctrineHydrationModule\Hydrator\DoctrineHydrator', $hydrator);
-        $this->assertInstanceOf('Phpro\DoctrineHydrationModule\Hydrator\ODM\MongoDB\DoctrineObject', $hydrator->getExtractService());
-        $this->assertEquals($generatedHydrator, $hydrator->getHydrateService());
     }
 
     /**

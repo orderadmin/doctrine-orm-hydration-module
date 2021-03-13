@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpro\DoctrineHydrationModule;
+namespace ApiSkeletons\DoctrineORMHydrationModule;
 
 class Module
 {

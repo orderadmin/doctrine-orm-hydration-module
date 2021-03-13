@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpro\DoctrineHydrationModule\Service;
+namespace ApiSkeletons\DoctrineORMHydrationModule\Service;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ODM\MongoDB\DocumentManager;
@@ -9,8 +9,8 @@ use DoctrineModule\Persistence\ObjectManagerAwareInterface;
 use DoctrineModule\Stdlib\Hydrator;
 use Doctrine\Laminas\Hydrator\DoctrineObject;
 use Interop\Container\ContainerInterface;
-use Phpro\DoctrineHydrationModule\Hydrator\DoctrineHydrator;
-use Phpro\DoctrineHydrationModule\Hydrator\ODM\MongoDB;
+use ApiSkeletons\DoctrineORMHydrationModule\Hydrator\DoctrineHydrator;
+use ApiSkeletons\DoctrineORMHydrationModule\Hydrator\ODM\MongoDB;
 use Laminas\Hydrator\AbstractHydrator;
 use Laminas\Hydrator\Filter\FilterComposite;
 use Laminas\Hydrator\Filter\FilterInterface;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Phpro\DoctrineHydrationModule\Hydrator;
+namespace ApiSkeletons\DoctrineORMHydrationModule\Hydrator;
 
 use Laminas\Hydrator\HydratorInterface;
 

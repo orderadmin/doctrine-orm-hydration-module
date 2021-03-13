@@ -1,8 +1,8 @@
 <?php
 
-namespace PhproTest\DoctrineHydrationModule\Tests;
+namespace ApiSkeletonsTest\DoctrineORMHydrationModule\Tests;
 
-use Phpro\DoctrineHydrationModule\Module;
+use ApiSkeletons\DoctrineORMHydrationModule\Module;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -16,7 +16,7 @@ class ModuleTest extends TestCase
     public function it_should_be_initializable()
     {
         $module = new Module();
-        $this->assertInstanceOf('Phpro\DoctrineHydrationModule\Module', $module);
+        $this->assertInstanceOf('ApiSkeletons\DoctrineORMHydrationModule\Module', $module);
     }
 
     /**

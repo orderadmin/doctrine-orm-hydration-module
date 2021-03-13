@@ -1,8 +1,8 @@
 <?php
 
-namespace PhproTest\DoctrineHydrationModule\Tests\Hydrator;
+namespace ApiSkeletonsTest\DoctrineORMHydrationModule\Tests\Hydrator;
 
-use Phpro\DoctrineHydrationModule\Hydrator\DoctrineHydrator;
+use ApiSkeletons\DoctrineORMHydrationModule\Hydrator\DoctrineHydrator;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -30,7 +30,7 @@ class DoctrineHydratorTest extends TestCase
     public function it_should_be_initializable()
     {
         $hydrator = $this->createHydrator();
-        $this->assertInstanceOf('Phpro\DoctrineHydrationModule\Hydrator\DoctrineHydrator', $hydrator);
+        $this->assertInstanceOf('ApiSkeletons\DoctrineORMHydrationModule\Hydrator\DoctrineHydrator', $hydrator);
     }
 
     /**
@@ -89,26 +89,5 @@ class DoctrineHydratorTest extends TestCase
         $result = $hydrator->hydrate($data, $object);
 
         $this->assertEquals($object, $result);
-    }
-
-    /**
-     * @test
-     */
-    public function it_should_use_a_generated_doctrine_hydrator_while_hydrating_an_object()
-    {
-        $object = new \stdClass();
-        $data = array('field' => 'value');
-
-        $hydrateService = $this->getMockBuilder('Doctrine\ODM\MongoDB\Hydrator\HydratorInterface')->getMock();
-        $hydrateService
-            ->expects($this->any())
-            ->method('hydrate')
-            ->with($object, $data)
-            ->willReturn([]);
-
-        $hydrator = $this->createHydrator($hydrateService, null);
-        $result = $hydrator->hydrate($data, $object);
-
-        $this->assertIsArray($result);
     }
 }

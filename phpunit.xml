@@ -6,8 +6,5 @@
             <directory>./test/src/Tests/Service</directory>
             <file>./test/src/Tests/Hydrator/DoctrineHydratorTest.php</file>
         </testsuite>
-        <!-- testsuite name="ODM">
-            <directory>./test/src/Tests/Hydrator/ODM</directory>
-        </testsuite -->
     </testsuites>
 </phpunit>
