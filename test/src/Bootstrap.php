@@ -35,7 +35,6 @@ class Bootstrap
     public function init()
     {
         $this->initAutoLoading();
-        $this->configureDoctrineODM();
     }
 
     /**
@@ -49,19 +48,6 @@ class Bootstrap
         $this->autoLoader->addClassMap(array(
             'Doctrine\\ODM\\MongoDB\\Tests\\BaseTest' => PROJECT_BASE_PATH.'/vendor/doctrine/mongodb-odm/tests/Doctrine/ODM/MongoDB/Tests/BaseTest.php',
         ));
-    }
-
-    /**
-     * Load all doctrine ODM configuration:.
-     */
-    protected function configureDoctrineODM()
-    {
-        // Constants
-        define('DOCTRINE_MONGODB_DATABASE', 'hydrator-tests');
-        define('DOCTRINE_MONGODB_SERVER', 'mongodb://mongo:27017');
-
-        // Load annotated classes
-//        \Doctrine\ODM\MongoDB\Mapping\Driver\AnnotationDriver::registerAnnotationClasses();
     }
 }
 

@@ -3,14 +3,12 @@
 namespace ApiSkeletons\DoctrineORMHydrationModule\Service;
 
 use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\ODM\MongoDB\DocumentManager;
 use Doctrine\ORM\EntityManager;
 use DoctrineModule\Persistence\ObjectManagerAwareInterface;
 use DoctrineModule\Stdlib\Hydrator;
 use Doctrine\Laminas\Hydrator\DoctrineObject;
 use Interop\Container\ContainerInterface;
 use ApiSkeletons\DoctrineORMHydrationModule\Hydrator\DoctrineHydrator;
-use ApiSkeletons\DoctrineORMHydrationModule\Hydrator\ODM\MongoDB;
 use Laminas\Hydrator\AbstractHydrator;
 use Laminas\Hydrator\Filter\FilterComposite;
 use Laminas\Hydrator\Filter\FilterInterface;
@@ -32,7 +30,6 @@ class DoctrineHydratorFactory implements AbstractFactoryInterface
 {
     const FACTORY_NAMESPACE = 'doctrine-hydrator';
 
-    const OBJECT_MANAGER_TYPE_ODM_MONGODB = 'ODM/MongoDB';
     const OBJECT_MANAGER_TYPE_ORM = 'ORM';
 
     /**
@@ -190,9 +187,7 @@ class DoctrineHydratorFactory implements AbstractFactoryInterface
      */
     protected function getObjectManagerType($objectManager)
     {
-        if (class_exists(DocumentManager::class) && $objectManager instanceof DocumentManager) {
-            return self::OBJECT_MANAGER_TYPE_ODM_MONGODB;
-        } elseif (class_exists(EntityManager::class) && $objectManager instanceof EntityManager) {
+        if (class_exists(EntityManager::class) && $objectManager instanceof EntityManager) {
             return self::OBJECT_MANAGER_TYPE_ORM;
         }
 
@@ -226,14 +221,7 @@ class DoctrineHydratorFactory implements AbstractFactoryInterface
     protected function loadEntityHydrator(ContainerInterface $container, $config, $objectManager)
     {
         $objectManagerType = $this->getObjectManagerType($objectManager);
-        if ($objectManagerType != self::OBJECT_MANAGER_TYPE_ODM_MONGODB) {
-            return;
-        }
-
-        $hydratorFactory = $objectManager->getHydratorFactory();
-        $hydrator = $hydratorFactory->getHydratorFor($config['entity_class']);
-
-        return $hydrator;
+        return;
     }
 
     /**
@@ -247,11 +235,7 @@ class DoctrineHydratorFactory implements AbstractFactoryInterface
     {
         $objectManagerType = $this->getObjectManagerType($objectManager);
 
-        if ($objectManagerType == self::OBJECT_MANAGER_TYPE_ODM_MONGODB) {
-            $hydrator = new MongoDB\DoctrineObject($objectManager, $config['by_value']);
-        } else {
-            $hydrator = new DoctrineObject($objectManager, $config['by_value']);
-        }
+        $hydrator = new DoctrineObject($objectManager, $config['by_value']);
 
         return $hydrator;
     }
