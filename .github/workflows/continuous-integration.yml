@@ -1,13 +1,12 @@
-
 name: "Continuous Integration"
 
 on:
   pull_request:
     branches:
-      - "*.x"
+      - "*"
   push:
     branches:
-      - "*.x"
+      - "*"
 
 env:
   fail-fast: true
