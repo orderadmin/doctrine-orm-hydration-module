@@ -1,5 +1,5 @@
 {
-  "name": "apiskeletons/doctrine-orm-hydration-module",
+  "name": "api-skeletons/doctrine-orm-hydration-module",
   "license": "MIT",
   "description": "Doctrine ORM hydrators for Laminas",
   "keywords": [
