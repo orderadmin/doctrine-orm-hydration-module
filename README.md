@@ -1,17 +1,6 @@
-> ## Repository abandoned
->
-> We are no longer using Apigility at PHPro anymore.
-> Therefor, it is hard for us to make the correct decisions for this package.
-> We are looking for someone who wants to take over the package and can push it in the correct direction again.
->
-> Are you that person? Reach out and we'll discuss how we can help each other!
->
-> Feel free to use it AS-IS, we won't be providing any support anymore.
-
-
-[![Build status](https://api.travis-ci.org/phpro/zf-doctrine-hydration-module.svg)](http://travis-ci.org/phpro/zf-doctrine-hydration-module)
-[![Packagist](https://img.shields.io/packagist/v/phpro/zf-doctrine-hydration-module.svg)](https://packagist.org/packages/phpro/zf-doctrine-hydration-module)
-[![Downloads](https://img.shields.io/packagist/dt/phpro/zf-doctrine-hydration-module.svg)](https://packagist.org/packages/phpro/zf-doctrine-hydration-module)
+[![Build status](https://api.travis-ci.org/api-skeletons/doctrine-orm-hydration-module.svg)](http://travis-ci.org/api-skeletons/zf-doctrine-hydration-module)
+[![Packagist](https://img.shields.io/packagist/v/api-skeletons/zf-doctrine-hydration-module.svg)](https://packagist.org/packages/api-skeletons/zf-doctrine-hydration-module)
+[![Downloads](https://img.shields.io/packagist/dt/api-skeletons/zf-doctrine-hydration-module.svg)](https://packagist.org/packages/api-skeletons/zf-doctrine-hydration-module)
 
 # Doctrine Hydration Module
 This module provides a configurable way to create new doctrine hydrators.
@@ -24,25 +13,20 @@ It is also possible to hydrate advanced documents with discriminator maps.
 
 # Supported features 
 
-* 4.0.x: Contains zend-servicemanager >=3.3.2 support requiring PHP 5.6+.
-* 3.0.x: Contains zend-servicemanager >=3 support requiring PHP 5.6+.
-* 2.0.x: Contains zend-hydrator support requiring PHP 5.6+.
-* 1.0.x: Contains zend-stdlib <2.7 support requiring PHP 5.4+.
-
-Make sure to commit on the correct branch if you want your changes to get merged into the project.
+* 1.0.x: A rewrite and editing of phpro/zf-doctrine-hydration-module requiring PHP 7.4+
 
 # Installation
 
 ## Add to composer.json
 ```
-composer require phpro/zf-doctrine-hydration-module
+composer require api-skeletons/doctrine-orm-hydration-module
 ```
 
 ## Add to application config
 ```php
 return array(
     'modules' => array(
-        'Phpro\\DoctrineHydrationModule',
+        'ApiSkeletons\\DoctrineORMHydrationModule',
         // other libs...
     ),
     // Other config
@@ -121,19 +105,6 @@ Note that this filter needs to implement `FilterInterface`.
 
 From here on, you can get the hydrator by calling `get('hydrator-manager-key')` on the HydratorManager.
 
-# Custom strategies:
-
-## MongoDB ODM
-
-- DateTimeField: Used for DateTime objects
-- DefaultRelation: Leave the relation AS-IS. Does not perform any modifications on the field.
-- EmbeddedCollection: Used for embedded collections
-- EmbeddedField: Used for embedded fields
-- ReferencedCollection: Used for referenced collections
-- ReferencedField: Used for referenced fields.
-- EmbeddedReferenceCollection: This is a custom strategy that can be used in an API to display all fields in a referenced object. The hydration works as a regular referenced object.
-- EmbeddedReferenceField: This is a custom strategy that can be used in an API to display all fields in a referenced object. The hydration works as a regular referenced object.
-
 # Custom Filters
 
 Custom filters allow you to fine-tune the results of the hydrator's `extract` functionality by determining which fields should be extracted. 
@@ -179,13 +150,9 @@ return array(
 This package is fully tested with Cs fixer and PhpUnit. The MongoDB tests require mongodb to be installed on your machine. You can skip these tests by adding a testsuite to the command:
 ```sh
 # Php coding standards:
-# (The files are loaded according to the PSR-4 standard. The PSR-0 fix will fail!)
-./vendor/bin/php-cs-fixer fix . --dry-run  --fixers=-psr0
+./vendor/bin/phpcs
+
 
 # Phpunit:
 ./vendor/bin/phpunit
-
-# Testing one testsuite:
-./vendor/bin/phpunit --testsuite="Main"
-./vendor/bin/phpunit --testsuite="ODM"
 ```
