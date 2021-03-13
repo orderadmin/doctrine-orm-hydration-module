@@ -20,7 +20,7 @@
   ],
   "extra": {
     "laminas": {
-      "module": "ApiSkeletons\\DoctrineHydrationModule"
+      "module": "ApiSkeletons\\DoctrineORMHydrationModule"
     }
   },
   "require": {
