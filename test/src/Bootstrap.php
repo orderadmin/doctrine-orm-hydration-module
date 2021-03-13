@@ -2,6 +2,8 @@
 
 namespace ApiSkeletonsTest\DoctrineORMHydrationModule;
 
+// phpcs:ignoreFile
+
 error_reporting(E_ALL | E_STRICT);
 define('PROJECT_BASE_PATH', __DIR__.'/../..');
 define('TEST_BASE_PATH', __DIR__.'/..');
@@ -46,7 +48,8 @@ class Bootstrap
         $this->autoLoader->addPsr4('ApiSkeletonsTest\\DoctrineORMHydrationModule\\Fixtures\\', __DIR__.'/Fixtures/');
 
         $this->autoLoader->addClassMap(array(
-            'Doctrine\\ODM\\MongoDB\\Tests\\BaseTest' => PROJECT_BASE_PATH.'/vendor/doctrine/mongodb-odm/tests/Doctrine/ODM/MongoDB/Tests/BaseTest.php',
+            'Doctrine\\ODM\\MongoDB\\Tests\\BaseTest'
+                => PROJECT_BASE_PATH.'/vendor/doctrine/mongodb-odm/tests/Doctrine/ODM/MongoDB/Tests/BaseTest.php',
         ));
     }
 }

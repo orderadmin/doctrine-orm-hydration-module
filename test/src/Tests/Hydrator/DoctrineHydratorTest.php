@@ -18,8 +18,10 @@ class DoctrineHydratorTest extends TestCase
      */
     protected function createHydrator($hydrateService = null, $extractService = null)
     {
-        $hydrateService = $hydrateService ? $hydrateService : $this->getMockBuilder('Laminas\Hydrator\HydratorInterface')->getMock();
-        $extractService = $extractService ? $extractService : $this->getMockBuilder('Laminas\Hydrator\HydratorInterface')->getMock();
+        $hydrateService = $hydrateService ? $hydrateService
+            : $this->getMockBuilder('Laminas\Hydrator\HydratorInterface')->getMock();
+        $extractService = $extractService ? $extractService
+            : $this->getMockBuilder('Laminas\Hydrator\HydratorInterface')->getMock();
 
         return new DoctrineHydrator($extractService, $hydrateService);
     }
@@ -27,7 +29,7 @@ class DoctrineHydratorTest extends TestCase
     /**
      * @test
      */
-    public function it_should_be_initializable()
+    public function itShouldBeInitializable()
     {
         $hydrator = $this->createHydrator();
         $this->assertInstanceOf('ApiSkeletons\DoctrineORMHydrationModule\Hydrator\DoctrineHydrator', $hydrator);
@@ -36,7 +38,7 @@ class DoctrineHydratorTest extends TestCase
     /**
      * @test
      */
-    public function it_should_have_a_hydrator_service()
+    public function itShouldHaveAHydratorService()
     {
         $hydrator = $this->createHydrator();
         $this->assertInstanceOf('Laminas\Hydrator\HydratorInterface', $hydrator->getHydrateService());
@@ -45,7 +47,7 @@ class DoctrineHydratorTest extends TestCase
     /**
      * @test
      */
-    public function it_should_have_an_extractor_service()
+    public function itShouldHaveAnExtractorService()
     {
         $hydrator = $this->createHydrator();
         $this->assertInstanceOf('Laminas\Hydrator\HydratorInterface', $hydrator->getExtractService());
@@ -54,7 +56,7 @@ class DoctrineHydratorTest extends TestCase
     /**
      * @test
      */
-    public function it_should_extract_an_object()
+    public function itShouldExtractAnObject()
     {
         $object = new \stdClass();
         $extracted = array('extracted' => true);
@@ -73,7 +75,7 @@ class DoctrineHydratorTest extends TestCase
     /**
      * @test
      */
-    public function it_should_hydrate_an_object()
+    public function itShouldHydrateAnObject()
     {
         $object = new \stdClass();
         $data = array('field' => 'value');

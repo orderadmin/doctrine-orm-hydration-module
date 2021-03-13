@@ -89,7 +89,7 @@ class DoctrineHydratorFactoryTest extends TestCase
     /**
      * @test
      */
-    public function it_should_be_initializable()
+    public function itShouldBeInitializable()
     {
         $factory = new DoctrineHydratorFactory();
         $this->assertInstanceOf('ApiSkeletons\DoctrineORMHydrationModule\Service\DoctrineHydratorFactory', $factory);
@@ -98,7 +98,7 @@ class DoctrineHydratorFactoryTest extends TestCase
     /**
      * @test
      */
-    public function it_should_be_an_abstract_factory()
+    public function itShouldBeAnAbstractFactory()
     {
         $factory = new DoctrineHydratorFactory();
         $this->assertInstanceOf('Laminas\ServiceManager\AbstractFactoryInterface', $factory);
@@ -107,7 +107,7 @@ class DoctrineHydratorFactoryTest extends TestCase
     /**
      * @test
      */
-    public function it_should_know_which_services_it_can_create()
+    public function itShouldKnowWhichServicesItCanCreate()
     {
         // $this->stubObjectManager('Doctrine\Common\Persistence\ObjectManager');
         $factory = new DoctrineHydratorFactory();
@@ -122,7 +122,7 @@ class DoctrineHydratorFactoryTest extends TestCase
     /**
      * @test
      */
-    public function it_should_create_a_custom_ORM_hydrator()
+    public function itShouldCreateACustomORMHydrator()
     {
         $hydrator = $this->createOrmHydrator();
 
@@ -134,7 +134,7 @@ class DoctrineHydratorFactoryTest extends TestCase
     /**
      * @test
      */
-    public function it_should_be_possible_to_configure_a_custom_hydrator()
+    public function itShouldBePossibleToConfigureACustomHydrator()
     {
         $this->serviceConfig['doctrine-hydrator']['custom-hydrator']['hydrator'] = 'custom.hydrator';
         $this->serviceManager->setService('config', $this->serviceConfig);
@@ -153,7 +153,7 @@ class DoctrineHydratorFactoryTest extends TestCase
     /**
      * @test
      */
-    public function it_should_be_possible_to_configure_a_custom_hydrator_as_factory()
+    public function itShouldBePossibleToConfigureACustomHydratorAsFactory()
     {
         $this->serviceConfig['doctrine-hydrator']['custom-hydrator']['hydrator'] = 'custom.build.hydrator';
         $this->serviceManager->setService('config', $this->serviceConfig);
@@ -172,7 +172,7 @@ class DoctrineHydratorFactoryTest extends TestCase
     /**
      * @test
      */
-    public function it_should_be_possible_to_configure_hydration_stategies()
+    public function itShouldBePossibleToConfigureHydrationStategies()
     {
         $hydrator = $this->createOrmHydrator();
         $realHydrator = $hydrator->getExtractService();
@@ -184,19 +184,22 @@ class DoctrineHydratorFactoryTest extends TestCase
     /**
      * @test
      */
-    public function it_should_be_possible_to_configure_a_naming_stategy()
+    public function itShouldBePossibleToConfigureANamingStategy()
     {
         $hydrator = $this->createOrmHydrator();
         $realHydrator = $hydrator->getExtractService();
 
         $this->assertTrue($realHydrator->hasNamingStrategy());
-        $this->assertInstanceOf('Laminas\Hydrator\NamingStrategy\NamingStrategyInterface', $realHydrator->getNamingStrategy());
+        $this->assertInstanceOf(
+            'Laminas\Hydrator\NamingStrategy\NamingStrategyInterface',
+            $realHydrator->getNamingStrategy()
+        );
     }
 
     /**
      * @test
      */
-    public function it_should_be_possible_to_configure_hydration_filters()
+    public function itShouldBePossibleToConfigureHydrationFilters()
     {
         $hydrator = $this->createOrmHydrator();
         $realHydrator = $hydrator->getExtractService();

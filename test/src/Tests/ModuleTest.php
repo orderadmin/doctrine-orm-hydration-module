@@ -13,7 +13,7 @@ class ModuleTest extends TestCase
     /**
      * @test
      */
-    public function it_should_be_initializable()
+    public function itShouldBeInitializable()
     {
         $module = new Module();
         $this->assertInstanceOf('ApiSkeletons\DoctrineORMHydrationModule\Module', $module);
@@ -22,7 +22,7 @@ class ModuleTest extends TestCase
     /**
      * @test
      */
-    public function it_should_provide_configuration()
+    public function itShouldProvideConfiguration()
     {
         $module = new Module();
         $this->assertIsArray($module->getConfig());
